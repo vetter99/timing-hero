@@ -1,0 +1,78 @@
+/** No CSS for this example */
+::ng-deep mat-form-field {
+    width: 100%;
+  }
+  
+  ::ng-deep .mat-calendar-body-cell.selected > .mat-calendar-body-cell-content,
+  ::ng-deep .mat-calendar-body-cell.selected:hover > .mat-calendar-body-cell-content,
+  ::ng-deep .mat-calendar-body-cell.selected > .mat-calendar-body-cell-content:hover {
+    background-color: #72c19b !important;
+    color: #fff !important;
+  }
+  
+  /* .md-datepicker-input-container {
+    width: 300px;
+  } */
+  
+  /* ::ng-deep .mat-datepicker-content .mat-calendar
+  { 
+       text-align:center;
+       zoom: 2.5;
+  } */
+  
+  ::ng-deep .mat-datepicker-content .mat-calendar{
+    /* width: 700px !important;
+    height: 700px !important;
+    position: absolute;
+    left: 200px */
+  }
+
+  ::ng-deep .mat-accent .mat-slider-thumb {
+    background-color: #72c19b;
+} 
+::ng-deep .mat-accent .mat-slider-thumb-label {
+    background-color: #72c19b;
+} 
+::ng-deep .mat-accent .mat-slider-track-fill {
+    background-color: #72c19b;
+} 
+
+::ng-deep .mat-calendar-body-cell.selected > .mat-calendar-body-cell-content, .mat-calendar-body-cell.selected:hover > .mat-calendar-body-cell-content, .mat-calendar-body-cell.selected > .mat-calendar-body-cell-content:hover {
+  background-color: #72c19b !important;
+  color: #fff !important;
+}
+  
+::ng-deep .mat-chip.mat-standard-chip {
+  background-color:white;
+  color: black;
+  border: 1px solid #72c19b;
+}
+
+#link-section{
+    background-color: #72c19b;
+    color: white;
+    font-size: 12px;
+    padding: 7px;
+    border-radius: 7px;
+    font-weight: 400;
+}
+
+::ng-deep .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb, .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb-label {
+  background-color: #72c19b;
+}
+
+::ng-deep .mat-slider:not(.mat-slider-disabled):not(.mat-slider-sliding) .mat-slider-thumb-label, .mat-slider:not(.mat-slider-disabled):not(.mat-slider-sliding) .mat-slider-thumb {
+  background-color: #72c19b;
+  color:white;
+
+}
+
+  .mat-slider-horizontal {
+    width: 100%;
+  }
+
+  mat-slider {
+    width: 300px;
+  }
+  
+

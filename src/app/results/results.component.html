@@ -1,0 +1,34 @@
+<h1>{{title}}</h1>
+<h4>Length: {{meetingLength}} hours</h4>
+<h4>Time Zone: {{browserTimeZone}}</h4>
+
+<div *ngIf = "responses.length <= 1">
+  <br>
+Waiting for more than 1 participant to generate available times...
+<br>
+</div>
+
+<div *ngIf="responses.length > 1 && finalTimes.length < 1" style = "font-weight:500; color: #72c19b; margin-bottom: 5px;">
+  No common times were found for all participants... 
+</div>
+
+<div *ngIf="responses.length > 1 && finalTimes.length > 1">
+<!-- <mat-icon [matBadge]="numberOfResponders" (click) = "peopleClicked()">people</mat-icon> -->
+
+<h4 style = "font-weight:500; color: #72c19b; margin-bottom: 5px;">Times To Meet</h4>
+
+<div *ngFor="let times of finalTimes; let i=index;" class = "time-block">
+  <b>{{times[0] | date: 'MMM d'  }}</b>  
+  <span style = "margin-left: 5px; color: gray;" > {{times[0] | date: 'h:mm a'  }} - {{times[times.length-1].getTime() + (30*60000) | date: 'h:mm a'  }}</span>
+</div>
+</div>
+
+<div id = "participant-block">
+  <div style ="margin-bottom: 10px; font-weight: 500;">Participants: </div>
+  
+  <div *ngFor="let responder of responses; let i=index;" style = "font-weight: 200;">
+    {{responder.name}}
+  </div>
+
+</div>
+

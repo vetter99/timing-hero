@@ -1,0 +1,13 @@
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput cdkFocusInitial [(ngModel)]="name" style ="width: 90%;">
+    </mat-form-field>
+    
+</div>
+<mat-dialog-actions >
+        <button style="float: right; background-color:#72c19b; color: white;" mat-flat-button  [mat-dialog-close]="name" >Continue</button>
+    <!-- <mat-icon color="accent" aria-label="enter" [mat-dialog-close]="name" style = "font-size: 32px;">check_box</mat-icon> -->
+</mat-dialog-actions>
+

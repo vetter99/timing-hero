@@ -1,0 +1,31 @@
+<h1>{{meeting.title}}</h1>
+<h5>Length: {{meeting.meetingLength}} hours</h5>
+<h5 style = "margin-bottom: 0px;">Name: <b>{{name}}</b><mat-icon id = "edit-icon" (click) = "openDialog()">edit</mat-icon></h5>
+
+<div style = "font-size: 12px; color: #ACACAC"> Use the calendar below to <br>select the times you are available.</div>
+<br>
+<div>
+  <span class="radio-toolbar" style = "text-align: center;" *ngFor="let day of meeting._meetingDays;let i=index;">
+    <input type="radio" [id]="'radio' + i" name="radio-meetingDays" [value]="day" [checked] = "i == 0" (change)="onDateChange(day)">
+    <label class = "radio-inline" [for]="'radio' + i">{{getDayOfWeek(day)}} <br> {{day | date: 'MM/dd' }}</label>
+  </span>
+</div>
+<br>
+  <div class="table-responsive" >
+  <table class="table table-bordered">
+
+      <tr *ngFor="let time of times; let i=index;">   <!-- (touchmove)="moveover($event) -->
+        <td [id] = "'item' + i"  (click) ="onTimeClick(time, i)">
+          
+          {{time | date: 'h:mm aa'}}
+          <span [id] = "'available-block' + i" [class] = "doesExist(time)">&nbsp;&nbsp;Available</span>
+        </td>
+        <!-- touchstart)="onTimeClick(time, i)" -->
+       
+      </tr>
+
+  </table>
+</div>
+
+<br>
+<button mat-raised-button style= "background-color: #72c19b; color:white" (click) = "save()">Submit</button>

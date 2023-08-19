@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "find-time-62ed1": {
+      "hosting": {
+        "find-time": [
+          "find-time-62ed1"
+        ]
+      }
+    }
+  }
+}

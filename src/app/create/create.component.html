@@ -1,0 +1,79 @@
+<form class="example-form">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Meeting Title</mat-label>
+      <input matInput placeholder="Ex. Hang out" [(ngModel)]="meeting.title" name = "title">
+    </mat-form-field>
+    
+<br>
+
+<div style = "color:grey; font-size: 13px;">Meeting Length: {{displayMeetingLength}}</div>
+<mat-slider name = "slider"
+class="example-margin"
+[disabled]="false"
+[invert]="false"
+[max]="8"
+[min]="0.5"
+[step]="0.5"
+[thumbLabel]="true"
+[tickInterval]="getSliderTickInterval()"
+[(ngModel)]="meeting.meetingLength"
+[vertical]="false"
+(input)="onInputChange($event)">
+</mat-slider>
+
+
+<br>
+    
+<mat-form-field>
+  <mat-chip-list #chipList aria-label="Choose a date"
+    (click)="picker.open()">
+    <mat-chip
+      *ngFor="let value of listOfDates"
+      [selectable]="false"
+      [removable]="true"
+      (removed)="remove(value)">
+      {{ value | date }}
+      <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+    </mat-chip>
+    <input [value]="resetModel" matInput [matDatepicker]="picker" [min]="todayDate"  placeholder="Choose a date"
+           (dateChange)="dateChanged($event)"
+           [matChipInputFor]="chipList" hidden />
+  </mat-chip-list>
+ 
+  <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker [startAt]="init" [dateClass]="dateClass"></mat-datepicker>
+</mat-form-field>
+</form>
+
+
+<button mat-raised-button style= "background-color: #72c19b; color:white" (click) = "onGenerate()">Create</button>
+
+<br>
+<br>
+<div *ngIf = "link != ''" id = "link-section" >
+
+  <b>Your Schedule has been Created! </b>
+  <br>
+  <br>
+<div style = "margin-left: 10px">Copy the link below to the participants:</div>
+
+  <div style = "font-weight: 200; text-align:center;"><i>{{link}}</i>&nbsp; 
+  <mat-icon style = "font-size: 19px" (click) = "copyLink()">content_copy</mat-icon> 
+  </div>
+
+<br>
+
+  <div style = "margin-left: 10px; ">
+    And fill out your own availability
+    <mat-icon style = "font-size: 25px; vertical-align: middle; margin-top: -2px;" (click) = "goToLink()">forward</mat-icon>
+  </div>
+  
+</div>
+
+<!-- All Meetings in Firestore:
+<ul>
+  <li *ngFor="let item of meetings | async">
+    {{ item.id }},{{ item.title }}
+  </li>
+</ul> -->
